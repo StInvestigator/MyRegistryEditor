@@ -1,0 +1,40 @@
+﻿<Window x:Class="MyRegistryEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyRegistryEditor"
+        mc:Ignorable="d"
+        Title="MyRegistry" Height="900" Width="1600" FontSize="30">
+    <Grid>
+        <TreeView Name="treeView" Width="500" Height="730" Margin="0,0,1100,100"/>
+        <Border Width="600" BorderBrush="Gainsboro" BorderThickness="2">
+            <DataGrid Height="800" Margin="0 0 0 100" Background="White" Name="dataGrid" AutoGenerateColumns="False" CanUserResizeColumns="False" SelectionChanged="dataGrid_Selected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="200" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding Path=Kind}" Width="200" />
+                    <DataGridTextColumn Header="Value" Binding="{Binding Path=Value}" Width="187" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Button Width="400" Height="50" Margin="0 770 0 0" Click="delete_Click">Delete value</Button>
+        <Button Width="400" Height="50" Margin="0 770 1100 0" Click="deleteKey_Click">Delete key</Button>
+        <Label Margin="1270,0,58,762" FontSize="34" FontWeight="Bold" Height="50">Add value</Label>
+        <Label Margin="1184,72,158,662" Height="50">Name</Label>
+        <TextBox Width="250" Height="50" Margin="1218,72,-18,662" Name="TBName" Padding="5 4 0 0"/>
+        <Label Margin="1184,155,158,579" Height="50">Type</Label>
+        <ComboBox Width="250" Height="50" Margin="1218,155,-18,579" Name="CBType" Padding="5 4 0 0">
+            <ComboBoxItem>String</ComboBoxItem>
+            <ComboBoxItem>ExpandString</ComboBoxItem>
+            <ComboBoxItem>DWord</ComboBoxItem>
+            <ComboBoxItem>Binary</ComboBoxItem>
+        </ComboBox>
+        <Label Margin="1184,242,158,462" Height="70">Value</Label>
+        <TextBox Width="250" Height="50"  Name="TBValue" Margin="1218,52,-18,282" Padding="5 4 0 0"/>
+        <Button Height="50" Margin="1180,348,50,386" Click="create_Click">Save</Button>
+        <Label Margin="1270,400,58,162" FontSize="34" FontWeight="Bold" Height="50">Add key</Label>
+        <Label Margin="1184,472,158,62" Height="50">Name</Label>
+        <TextBox Width="250" Height="50" Margin="1218,472,-18,62" Name="TBNameKey" Padding="5 4 0 0"/>
+        <Button Height="50" Margin="1180,670,50,86" Click="createKey_Click">Save</Button>
+    </Grid>
+</Window>
